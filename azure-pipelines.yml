@@ -20,8 +20,8 @@ steps:
 - task: PowerShell@2
   displayName: 'waiting for some time'
   inputs:
-    command: 'inline'
-    projects: 'PowerShell@2'
+    targetType: 'inline'
+    script: 'PowerShell@2'
 
 - task: Npm@1
   displayName: 'Run npm install'
