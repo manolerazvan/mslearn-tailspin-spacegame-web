@@ -17,11 +17,11 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
-- task: PowerShell@2
-  displayName: 'waiting for some time'
-  inputs:
-    targetType: 'inline'
-    script: 'Start-Sleep -Seconds 600'
+# - task: PowerShell@2
+#   displayName: 'waiting for some time'
+#   inputs:
+#     targetType: 'inline'
+#     script: 'Start-Sleep -Seconds 600'
 
 - task: Npm@1
   displayName: 'Run npm install'
