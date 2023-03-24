@@ -16,6 +16,9 @@ steps:
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
+- task: Delay@1
+  inputs:
+    delayForMinutes: '10' # string. Required. Delay Time (minutes). Default: 0.
 
 - task: Npm@1
   displayName: 'Run npm install'
