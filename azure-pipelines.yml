@@ -16,9 +16,12 @@ steps:
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
-- task: Delay@1
+
+- task: PowerShell@2
+  displayName: 'waiting for some time'
   inputs:
-    delayForMinutes: '10' # string. Required. Delay Time (minutes). Default: 0.
+    command: 'inline'
+    projects: 'PowerShell@2'
 
 - task: Npm@1
   displayName: 'Run npm install'
