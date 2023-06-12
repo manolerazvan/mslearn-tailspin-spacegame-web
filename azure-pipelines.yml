@@ -62,8 +62,6 @@ steps:
   name: AzureFileCopyGeoLite2Citymmdb
   displayName: 'Create and upload GeoLite2-City.mmdb file'
 
-azcopy copy "c:\apps\azcopyplay\GeoLite2-City.mmdb" "https://rmazcopydemo.blob.core.windows.net/rmcontainer" --log-level=INFO --recursive
-
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
