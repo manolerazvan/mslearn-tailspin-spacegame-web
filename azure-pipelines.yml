@@ -51,6 +51,19 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: '/home/vsts/work/1/s/Tailspin.SpaceGame.Web/bin/Release/net6.0/Tailspin.SpaceGame.Web.dll'
+    azureSubscription: 'rrr'
+    Destination: 'AzureBlob'
+    storage: 'rmazcopydemo'
+    ContainerName: 'rmcontainer'
+    BlobPrefix: 'GeoLite2_City'
+  name: AzureFileCopyGeoLite2Citymmdb
+  displayName: 'Create and upload GeoLite2-City.mmdb file'
+
+azcopy copy "c:\apps\azcopyplay\GeoLite2-City.mmdb" "https://rmazcopydemo.blob.core.windows.net/rmcontainer" --log-level=INFO --recursive
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
